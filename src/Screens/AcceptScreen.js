@@ -106,6 +106,23 @@ function AcceptScreen({ data }) {
           </HStack>
         </View>
         <View borderWidth={0.5} marginX={5} p={3} mt={8} rounded={8}>
+          <Text bold fontSize={17} pb={2} color="orange.600">
+            Thông tin người bán
+          </Text>
+          <View flexDirection="row">
+            <Avatar source={{ uri: order.seller.avatar }} />
+            <View ml={5}>
+              <Text fontSize={18}>{order.seller.name}</Text>
+              <Text fontSize={16}>
+                <Text bold>
+                  Số điện thoại: <Text bold>{order.seller.phone}</Text>
+                </Text>
+              </Text>
+            </View>
+          </View>
+          <Text bold fontSize={17} mt={2} pb={3} color="orange.600">
+            Thông tin sản phẩm
+          </Text>
           <HStack space={4} borderBottomWidth={1} borderStyle="dashed" pb={3}>
             <Image
               source={{

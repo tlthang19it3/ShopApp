@@ -64,6 +64,9 @@ function ReviewScreen({ navigation, route }) {
     dispatch(
       addReview(sellerId, rating, buyerId, buyername, avatar, date, comment)
     );
+    setTimeout(() => {
+      navigation.goBack();
+    }, 1000);
   };
   return (
     <Box safeAreaTop flex={1} bg={Colors.white}>
@@ -164,13 +167,23 @@ function ReviewScreen({ navigation, route }) {
                 <Text bold fontSize={17}>
                   {owner.name}
                 </Text>
-                <View flexDirection="row" alignItems="center">
-                  <Text fontSize={23} bold mr={1}>
-                    {(owner.rating / owner.numReviews).toFixed(1)}
-                  </Text>
-                  <FontAwesome name={"star"} color={"orange"} size={20} />
-                </View>
 
+                <View flexDirection="row" alignItems="center">
+                  {owner.numReviews === 0 ? (
+                    <Text fontSize={18} bold mr={1}>
+                      Chưa có đánh giá
+                    </Text>
+                  ) : (
+                    <Text fontSize={23} bold mr={1}>
+                      {(owner.rating / owner.numReviews).toFixed(1)}
+                    </Text>
+                  )}
+                  {owner.numReviews === 0 ? (
+                    <View></View>
+                  ) : (
+                    <FontAwesome name={"star"} color={"orange"} size={20} />
+                  )}
+                </View>
                 <Text fontSize={13}>{owner.numReviews} đánh giá</Text>
               </VStack>
             </View>
@@ -189,6 +202,7 @@ function ReviewScreen({ navigation, route }) {
                     <Text bold fontSize={15} color={Colors.black}>
                       {review.name}
                     </Text>
+
                     <Text w="40%">{review.comment}</Text>
                     <View alignItems="center" flexDirection="row">
                       <Rating value={review.rating} />

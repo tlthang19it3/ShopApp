@@ -78,9 +78,8 @@ function Shipping() {
     setTimeout(() => {
       fetchProducts();
       setRefreshing(false);
-      navigation.navigate("ReviewScreen");
+      navigation.navigate("ReviewScreen", seller);
     }, 2000);
-    navigation.navigate("ReviewScreen", seller);
   };
 
   const currencyFormatter = (value, options) => {

@@ -10,6 +10,7 @@ import {
   Divider,
   Image,
   TextArea,
+  Avatar,
 } from "native-base";
 import {
   Ionicons,
@@ -110,6 +111,50 @@ function SuccessfulReceiveScreen({ data }) {
           <Text bold mt={2} fontSize={18}>
             Đã nhận hàng thành công
           </Text>
+        </View>
+        <Divider orientation="horizontal" my={5} bg="gray.300" />
+        <View px={5}>
+          <Text bold fontSize={17} pb={2} color="orange.600">
+            Thông tin người bán
+          </Text>
+          <View flexDirection="row">
+            <Avatar source={{ uri: order.seller.avatar }} />
+            <View ml={5}>
+              <Text fontSize={18}>{order.seller.name}</Text>
+              <Text fontSize={16}>
+                <Text bold>
+                  Số điện thoại: <Text bold>{order.seller.phone}</Text>
+                </Text>
+              </Text>
+            </View>
+          </View>
+          <Text bold fontSize={17} mt={2} pb={3} color="orange.600">
+            Thông tin sản phẩm
+          </Text>
+          <HStack space={4}>
+            <Image
+              source={{
+                uri: order.blog.image,
+              }}
+              height={70}
+              width={70}
+              alt="a"
+            />
+            <VStack>
+              <Text fontSize={18}>{order.blog.title}</Text>
+              <Text fontSize={16}>
+                <Text bold>
+                  Thanh toán COD:{" "}
+                  <Text bold color="green.700">
+                    {currencyFormatter(order.total, defaultOptions)}đ
+                  </Text>
+                </Text>
+              </Text>
+              <Text fontSize={13} color="gray.500">
+                {order.blog.ward}, {order.blog.district}, {order.blog.city}
+              </Text>
+            </VStack>
+          </HStack>
         </View>
         <Divider orientation="horizontal" my={5} bg="gray.300" />
         <View px={5}>

@@ -10,16 +10,16 @@ import {
   Pressable,
   VStack,
   Center,
+  Avatar,
+  Divider,
 } from "native-base";
 import React, { useEffect, useState } from "react";
 import Colors from "../color";
 import Rating from "../Components/Rating";
-import Review from "../Components/Review";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
 import { ActivityIndicator, TouchableOpacity } from "react-native";
 import axios from "axios";
-import { Storage } from "expo-storage";
 import { useSelector } from "react-redux";
 const Url = `http://192.168.1.7:5000`;
 function SingleProductScreen({ route }) {
@@ -58,8 +58,8 @@ function SingleProductScreen({ route }) {
   const fetchProducts = async () => {
     try {
       fetchProfileOwner();
-      const { data } = await axios.get(`${Url}/api/product/`);
-      setPro(data);
+      const { data } = await axios.get(`${Url}/api/product/show/accept`);
+      setPro(data.filter((data) => data.category === product.category));
     } catch (error) {
       console.log(error);
     }
@@ -284,8 +284,7 @@ function SingleProductScreen({ route }) {
               Phường {product.ward}, Quận {product.district}, {product.city}
             </Text>
           </View>
-          <Review />
-          <View pb={10}>
+          <View pb={10} mt={10}>
             <View
               flexDirection="row"
               justifyContent="space-between"
@@ -303,7 +302,7 @@ function SingleProductScreen({ route }) {
               </TouchableOpacity>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {pro.map((product) => (
+              {pro.slice(0, 10).map((product) => (
                 <TouchableOpacity
                   key={product._id}
                   alignItems="center"
@@ -344,6 +343,36 @@ function SingleProductScreen({ route }) {
               ))}
             </ScrollView>
           </View>
+          <Text bold fontSize={18} pb={5}>
+            Đánh giá từ người mua đối với {owner.name}
+          </Text>
+          <Divider orientation="horizontal" />
+          {owner.reviews.map((review, index) => (
+            <View
+              p={3}
+              key={index}
+              borderBottomWidth={0.8}
+              borderColor={"gray.300"}
+              flexDirection="row"
+              alignItems="center"
+            >
+              <Avatar source={{ uri: review.avatar }} />
+              <View ml={3}>
+                <Text bold fontSize={15} color={Colors.black}>
+                  {review.name}
+                </Text>
+
+                <Text w="40%">{review.comment}</Text>
+                <View alignItems="center" flexDirection="row">
+                  <Rating value={review.rating} />
+                  <Text color="gray.500" fontSize={10}>
+                    {" "}
+                    | {review.date}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          ))}
         </ScrollView>
       )}
       {userInfo ? (

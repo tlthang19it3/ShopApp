@@ -99,10 +99,10 @@ function ProfileScreen({ navigation, route }) {
         safeAreaTop
       >
         <Pressable onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={24} color="white" />
         </Pressable>
-        <Text bold fontSize={17} color="black">
-          {userInfo.name}
+        <Text bold fontSize={17} color="white">
+          Trang cá nhân
         </Text>
       </HStack>
       <ScrollView
@@ -220,7 +220,7 @@ function ProfileScreen({ navigation, route }) {
         ) : (
           <View bg={Colors.white} mb={20}>
             <VStack>
-              {product.length <= 0 ? (
+              {product == null ? (
                 <Center alignItems="center" h={100}>
                   <Text>Bạn chưa có tin nào đang bán</Text>
                 </Center>
