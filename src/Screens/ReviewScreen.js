@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addReview } from "../Redux/Actions/UserActions";
 import Rating from "../Components/Rating";
 import { ActivityIndicator, TouchableOpacity } from "react-native";
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 function ReviewScreen({ navigation, route }) {
   const id = route.params;
   const [loading, setLoading] = useState(true);
@@ -187,7 +187,7 @@ function ReviewScreen({ navigation, route }) {
                 <Text fontSize={13}>{owner.numReviews} đánh giá</Text>
               </VStack>
             </View>
-            {owner ? (
+            {owner.numReviews > 0 ? (
               owner.reviews.map((review, index) => (
                 <View
                   p={3}
@@ -203,7 +203,7 @@ function ReviewScreen({ navigation, route }) {
                       {review.name}
                     </Text>
 
-                    <Text w="40%">{review.comment}</Text>
+                    <Text w="100%">{review.comment}</Text>
                     <View alignItems="center" flexDirection="row">
                       <Rating value={review.rating} />
                       <Text color="gray.500" fontSize={10}>
@@ -215,7 +215,9 @@ function ReviewScreen({ navigation, route }) {
                 </View>
               ))
             ) : (
-              <Text></Text>
+              <View flex={1} p={10} alignItems="center">
+                <Text fontSize={15}>Chưa có đánh giá nào</Text>
+              </View>
             )}
           </View>
         )}

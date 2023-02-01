@@ -20,7 +20,7 @@ import {
 import { Ionicons, AntDesign, Fontisto } from "@expo/vector-icons";
 import Rating from "../Components/Rating";
 import axios from "axios";
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 function OwnerProfileScreen({ navigation, route }) {
   const userInfo = route.params;
   const [product, setProduct] = useState([]);

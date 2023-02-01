@@ -35,7 +35,7 @@ const categories = [
     image: require("../../assets/dodientu.jpg"),
   },
 ];
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 
 function HomeScreen() {
   const [pro, setPro] = useState([]);

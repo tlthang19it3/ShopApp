@@ -164,26 +164,6 @@ function ProfileScreen2({ navigation }) {
                 borderBottomWidth: 0.6,
                 borderBottomColor: Colors.deepGray,
               }}
-            >
-              <Image
-                source={require("../../assets/icon3.png")}
-                alt="icon"
-                h={7}
-                w={7}
-              />
-              <Text fontSize={15} ml={2}>
-                Tin đăng đã lưu
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                alignItems: "center",
-                padding: 10,
-                borderBottomWidth: 0.6,
-                borderBottomColor: Colors.deepGray,
-              }}
               onPress={() => {
                 userInfo != null
                   ? navigation.navigate("UpdateProfile", userInfo)

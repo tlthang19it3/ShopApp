@@ -4,7 +4,7 @@ import AcceptScreen from "./AcceptScreen";
 import ShippingScreen from "./ShippingScreen";
 import SuccessfulReceiveScreen from "./SuccessfulReceiveScreen";
 
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 
 function OrderInfoScreen({ route }) {
   const order = route.params;

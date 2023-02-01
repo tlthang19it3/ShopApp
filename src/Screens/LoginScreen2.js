@@ -64,23 +64,13 @@ function LoginScreen2() {
       <View style={{ paddingHorizontal: 25 }}>
         <View style={{ alignItems: "center" }}>
           <Image
-            source={{
-              uri: "https://static.chotot.com/storage/assets/LOGIN/logo_register.png",
-            }}
+            source={require("../../assets/logo.jpg")}
             alt="twiter"
-            height={200}
-            width={200}
+            height={300}
+            width={300}
+            resizeMode="contain"
           />
         </View>
-
-        <Text
-          style={{
-            fontSize: 28,
-            fontWeight: "500",
-            color: "#333",
-            marginBottom: 30,
-          }}
-        ></Text>
 
         <InputField
           label="Email"
@@ -100,7 +90,7 @@ function LoginScreen2() {
         />
 
         <InputField
-          label="Password"
+          label="Mật khẩu"
           icon={
             <Feather
               name="lock"
@@ -110,7 +100,6 @@ function LoginScreen2() {
             />
           }
           inputType="password"
-          fieldButtonLabel="Quên mật khẩu?"
           onChangeText={(e) => {
             validatePass(e);
           }}

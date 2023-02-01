@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = `http://192.168.1.7:5000`;
+const URL = `https://server-shop-app.onrender.com`;
 export const addBlog =
   (
     userId,

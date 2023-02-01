@@ -106,10 +106,11 @@ const RegisterScreen2 = ({ navigation }) => {
       >
         <View style={{ alignItems: "center" }}>
           <Image
-            source={require("../../assets/logo.png")}
+            source={require("../../assets/logo.jpg")}
             alt="twiter"
-            height={120}
-            width={120}
+            height={150}
+            width={150}
+            resizeMode="contain"
           />
         </View>
 

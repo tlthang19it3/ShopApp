@@ -8,7 +8,7 @@ import Other from "./Other";
 import Colors from "../../color";
 import axios from "axios";
 import { Storage } from "expo-storage";
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 
 export default function Tabs() {
   const renderScene = ({ route, jumpTo }) => {

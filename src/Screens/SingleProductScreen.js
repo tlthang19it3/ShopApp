@@ -21,7 +21,7 @@ import { AntDesign, EvilIcons, Ionicons } from "@expo/vector-icons";
 import { ActivityIndicator, TouchableOpacity } from "react-native";
 import axios from "axios";
 import { useSelector } from "react-redux";
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 function SingleProductScreen({ route }) {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -194,7 +194,7 @@ function SingleProductScreen({ route }) {
                 <Heading bold color={Colors.red} fontSize={15}>
                   {currencyFormatter(product.price, defaultOptions)}đ
                 </Heading>
-                <Rating value={product.rating} />
+                <Rating value={owner.rating} />
               </VStack>
               <Pressable
                 p={1.5}
@@ -343,36 +343,42 @@ function SingleProductScreen({ route }) {
               ))}
             </ScrollView>
           </View>
-          <Text bold fontSize={18} pb={5}>
+          <Text bold fontSize={18} pb={5} textAlign="center">
             Đánh giá từ người mua đối với {owner.name}
           </Text>
           <Divider orientation="horizontal" />
-          {owner.reviews.map((review, index) => (
-            <View
-              p={3}
-              key={index}
-              borderBottomWidth={0.8}
-              borderColor={"gray.300"}
-              flexDirection="row"
-              alignItems="center"
-            >
-              <Avatar source={{ uri: review.avatar }} />
-              <View ml={3}>
-                <Text bold fontSize={15} color={Colors.black}>
-                  {review.name}
-                </Text>
-
-                <Text w="40%">{review.comment}</Text>
-                <View alignItems="center" flexDirection="row">
-                  <Rating value={review.rating} />
-                  <Text color="gray.500" fontSize={10}>
-                    {" "}
-                    | {review.date}
+          {owner.numReviews > 0 ? (
+            owner.reviews.map((review, index) => (
+              <View
+                p={3}
+                key={index}
+                borderBottomWidth={0.8}
+                borderColor={"gray.300"}
+                flexDirection="row"
+                alignItems="center"
+              >
+                <Avatar source={{ uri: review.avatar }} />
+                <View ml={3}>
+                  <Text bold fontSize={15} color={Colors.black}>
+                    {review.name}
                   </Text>
+
+                  <Text w="100%">{review.comment}</Text>
+                  <View alignItems="center" flexDirection="row">
+                    <Rating value={review.rating} />
+                    <Text color="gray.500" fontSize={10}>
+                      {" "}
+                      | {review.date}
+                    </Text>
+                  </View>
                 </View>
               </View>
+            ))
+          ) : (
+            <View flex={1} p={10} alignItems="center">
+              <Text fontSize={15}>Chưa có đánh giá nào</Text>
             </View>
-          ))}
+          )}
         </ScrollView>
       )}
       {userInfo ? (

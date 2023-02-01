@@ -23,7 +23,7 @@ import {
 
 import { useNavigation } from "@react-navigation/native";
 
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 
 function ShippingOrderScreen({ data }) {
   const [isOpen, setIsOpen] = useState(false);

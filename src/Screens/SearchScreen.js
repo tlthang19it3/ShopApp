@@ -17,7 +17,7 @@ import { ActivityIndicator, RefreshControl } from "react-native";
 import { Ionicons, EvilIcons } from "@expo/vector-icons";
 import axios from "axios";
 
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 const categories = [
   "Đồ điện tử",
   "Thời trang, đồ dùng cá nhân",

@@ -21,7 +21,7 @@ function Waiting() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const [order, setOrder] = useState([]);
-  const Url = `http://192.168.1.7:5000`;
+  const Url = `https://server-shop-app.onrender.com`;
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get(

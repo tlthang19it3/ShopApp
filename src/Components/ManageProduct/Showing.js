@@ -23,14 +23,19 @@ function Showing() {
   const toast = useToast();
   const [product, setProduct] = useState([]);
   const navigation = useNavigation();
-  const Url = `http://192.168.1.7:5000`;
+  const Url = `https://server-shop-app.onrender.com`;
   const fetchProducts = async () => {
     try {
       const id = await Storage.getItem({ key: "userID" });
       const { data } = await axios.get(`${Url}/api/product/users/${id}`);
       if (data.length > 0) {
         setProduct(
-          data.filter((data) => data.isShow === true && data.isAccept === 1)
+          data.filter(
+            (data) =>
+              data.isShow === true &&
+              data.isAccept === 1 &&
+              data.isSold === false
+          )
         );
       } else {
         setProduct([]);

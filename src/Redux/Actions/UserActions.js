@@ -27,7 +27,7 @@ const setStorage = async (data) => {
     await Storage.setItem({ key: "userInfo", value: userinfo });
   } catch (e) {}
 };
-const URL = `http://192.168.1.7:5000`;
+const URL = `https://server-shop-app.onrender.com`;
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({

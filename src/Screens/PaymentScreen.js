@@ -34,7 +34,7 @@ const district1 = ["Hải châu", "Thanh khê", "Ngũ hành sơn", "Liên chiể
 const district2 = ["Nam Đông", "Phong Điền", "Phú Lộc", "Phú Vang"];
 const district3 = ["Đại Lộc", "Đông Giang", "Phú Ninh", "Quế Sơn"];
 const wards = ["Hải Châu 1", "Hoà Cường Bắc", "Nam Dương", "Phước Ninh"];
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 
 function PaymentScreen({ navigation, route }) {
   const getTime = () => {

@@ -21,7 +21,7 @@ import { Ionicons, AntDesign, Fontisto } from "@expo/vector-icons";
 import { Storage } from "expo-storage";
 import Rating from "../Components/Rating";
 import axios from "axios";
-const Url = `http://192.168.1.7:5000`;
+const Url = `https://server-shop-app.onrender.com`;
 function ProfileScreen({ navigation, route }) {
   const userInfo = route.params;
   const [product, setProduct] = useState([]);
@@ -200,6 +200,7 @@ function ProfileScreen({ navigation, route }) {
                 alignItems: "center",
                 paddingLeft: 10,
                 paddingTop: 5,
+                paddingBottom: 5,
               }}
             >
               <Fontisto name="date" size={14} color="black" />

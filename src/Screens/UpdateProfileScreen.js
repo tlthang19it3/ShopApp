@@ -206,64 +206,6 @@ function UpdateProfileScreen({ navigation, route }) {
             />
           </HStack>
         </Pressable>
-        <Pressable
-          px={3}
-          mt={3}
-          borderBottomWidth={0.5}
-          borderBottomColor="gray.400"
-          _pressed={{ opacity: 0.5 }}
-        >
-          <HStack justifyContent="space-between">
-            <VStack>
-              <Text color="gray.400">Thành phố</Text>
-              <Text mt={1}>Đà nẵng</Text>
-            </VStack>
-            <Ionicons
-              name="chevron-forward"
-              size={28}
-              color={Colors.deepestGray}
-              style={{ alignSelf: "center" }}
-            />
-          </HStack>
-        </Pressable>
-        <Pressable
-          px={3}
-          mt={3}
-          borderBottomWidth={0.5}
-          borderBottomColor="gray.400"
-          _pressed={{ opacity: 0.5 }}
-          flexDirection="row"
-          justifyContent="space-between"
-        >
-          <Text color="#FFA500" marginY={3}>
-            Thêm quận/huyện
-          </Text>
-          <Ionicons
-            name="chevron-forward"
-            size={28}
-            color={Colors.deepestGray}
-            style={{ alignSelf: "center" }}
-          />
-        </Pressable>
-        <Pressable
-          px={3}
-          mt={3}
-          borderBottomWidth={0.5}
-          borderBottomColor="gray.400"
-          _pressed={{ opacity: 0.5 }}
-          flexDirection="row"
-          justifyContent="space-between"
-        >
-          <Text color="#FFA500" marginY={3}>
-            Thêm địa chỉ
-          </Text>
-          <Ionicons
-            name="chevron-forward"
-            size={28}
-            color={Colors.deepestGray}
-            style={{ alignSelf: "center" }}
-          />
-        </Pressable>
       </ScrollView>
     </Box>
   );
